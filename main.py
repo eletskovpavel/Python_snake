@@ -17,6 +17,7 @@ lengthSnake = 1
 dx , dy = 0,0
 fps = 15
 apple = randrange(0,WINDOW_WIDTH,OBJECT_SIZE),randrange(0,WINDOW_HEIGHT,OBJECT_SIZE)
+score = 0
 
 #traffic dictionary
 trafficDict = {"W": (0, -1), "S": (0,1), "A": (-1,0), "D": (1,0)}
@@ -39,7 +40,8 @@ while True:
     if bodySnake [-1] == apple:
         apple = randrange(0,WINDOW_WIDTH,OBJECT_SIZE),randrange(0,WINDOW_HEIGHT,OBJECT_SIZE)
         lengthSnake += 1
-        fps += 1
+        fps += 5
+        score += 1
     #things for keyboard
     key = pygame.key.get_pressed()
     if key[pygame.K_w] and (dx,dy) != trafficDict['S']:
@@ -61,3 +63,4 @@ while True:
     #fps control
     clock = pygame.time.Clock()
     clock.tick(fps)
+print(score)
